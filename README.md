@@ -104,6 +104,7 @@ These were resolved by redesigning the feature pipeline around hand landmarks an
 
 ## 📁 Project Structure
 
+<pre>
 ├── data/
 │   └── landmarks_dataset.csv
 ├── model/
@@ -114,7 +115,7 @@ These were resolved by redesigning the feature pipeline around hand landmarks an
 │   └── realtime_predict.py
 ├── requirements.txt
 └── README.md
-
+</pre>
 
 ---
 
