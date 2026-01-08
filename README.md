@@ -76,7 +76,6 @@ This ensures compatibility with real-world usage rather than static image data.
 | Test Accuracy | **~98.25%** |
 | Inference Speed | Real-time |
 | Hardware | Standard Webcam |
-| GPU Required | ❌ No |
 
 Switching from image-based features to landmark-based learning significantly improved prediction stability and accuracy.
 
