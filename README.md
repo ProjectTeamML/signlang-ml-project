@@ -44,13 +44,13 @@ Chosen for its strong performance on structured numerical data and suitability f
 ## ⚙️ System Workflow
 
 Webcam Frame
-↓
+->
 Hand Landmark Detection
-↓
+->
 Feature Normalization
-↓
+->
 Random Forest Model
-↓
+->
 Predicted Alphabet Letter
 
 
@@ -105,13 +105,13 @@ These were resolved by redesigning the feature pipeline around hand landmarks an
 ## 📁 Project Structure
 
 ├── data/
-│ └── landmarks_dataset.csv
+│   └── landmarks_dataset.csv
 ├── model/
-│ └── random_forest.pkl
+│   └── random_forest.pkl
 ├── src/
-│ ├── collect_data.py
-│ ├── train_model.py
-│ └── realtime_predict.py
+│   ├── collect_data.py
+│   ├── train_model.py
+│   └── realtime_predict.py
 ├── requirements.txt
 └── README.md
 
