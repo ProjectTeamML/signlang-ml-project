@@ -1,116 +1,125 @@
-# Real-Time Sign Language Recognition Using Hand Landmarks
-**Overview**
+<div align="center">
 
-This project implements a real-time sign language recognition system that detects hand gestures through a webcam and converts them into English alphabet letters.
-The system uses hand landmark detection and a machine learning classifier to achieve fast and reliable predictions in live video.
+# ✋ Real-Time Sign Language Recognition  
+### Hand Landmark–Based Gesture Classification
 
-The focus of the project is on real-time usability, robust feature representation, and lightweight deployment.
+<img src="https://img.shields.io/badge/Python-3.x-blue?style=flat-square"/>
+<img src="https://img.shields.io/badge/MediaPipe-Hands-green?style=flat-square"/>
+<img src="https://img.shields.io/badge/ML-Random%20Forest-orange?style=flat-square"/>
+<img src="https://img.shields.io/badge/Accuracy-98.25%25-brightgreen?style=flat-square"/>
 
-**Tech Stack**
+</div>
 
-Python
+---
 
-MediaPipe – hand landmark detection
+## 📌 Overview
 
-OpenCV – webcam capture & visualization
+This project implements a **real-time sign language recognition system** that detects hand gestures through a webcam and converts them into English alphabet letters.
 
-Scikit-learn – machine learning
+The system is designed for **live video input**, using **hand landmark geometry** instead of raw images to ensure stable and efficient real-time performance.
 
-Random Forest Classifier
+---
 
-**System Design**
-1. Hand Landmark Detection
+## 🧠 Approach
 
-The system uses MediaPipe Hands to detect 21 hand landmarks per frame.
-Each landmark provides (x, y, z) coordinates, resulting in a 63-dimensional feature vector per gesture.
+### 🔹 Hand Landmark Detection
+- Uses **MediaPipe Hands**
+- Extracts **21 hand landmarks** per frame  
+- Each landmark provides *(x, y, z)* coordinates  
+- Total features per gesture: **63**
 
-Using landmarks instead of raw images ensures:
+Landmark-based representation reduces sensitivity to lighting, background noise, and camera variations.
 
-Consistency across lighting conditions
+---
 
-Reduced background influence
+### 🔹 Machine Learning Model
+- **Random Forest Classifier**
+- Trained on normalized landmark features
+- Optimized for low-latency inference
 
-Faster and more stable real-time inference
+Chosen for its strong performance on structured numerical data and suitability for real-time systems.
 
-**2. Machine Learning Model
-**
-A Random Forest classifier is trained on the extracted landmark features.
+---
 
-Performs well on structured numerical data
+## ⚙️ System Workflow
 
-Low inference latency (suitable for real-time systems)
+Webcam Frame
+↓
+Hand Landmark Detection
+↓
+Feature Normalization
+↓
+Random Forest Model
+↓
+Predicted Alphabet Letter
 
-No GPU requirement
 
-The model predicts the corresponding alphabet letter for each frame.
+The system runs at **~20–30 FPS**, enabling smooth real-time interaction.
 
-**Workflow**
+---
 
-Webcam captures live video frames
+## 📊 Dataset
 
-Hand landmarks are detected using MediaPipe
+- Custom dataset collected using a webcam  
+- Multiple samples per alphabet sign  
+- Captured from different angles and positions  
+- Easily extensible for additional gestures  
 
-Landmark coordinates are normalized and flattened
+This ensures compatibility with real-world usage rather than static image data.
 
-Feature vector is passed to the trained model
+---
 
-Predicted letter is displayed in real time
+## 🚀 Performance
 
-The system runs at approximately 20–30 FPS, enabling smooth interaction.
+| Metric | Value |
+|------|------|
+| Test Accuracy | **~98.25%** |
+| Inference Speed | Real-time |
+| Hardware | Standard Webcam |
+| GPU Required | ❌ No |
 
-**Dataset**
+Switching from image-based features to landmark-based learning significantly improved prediction stability and accuracy.
 
-Custom dataset collected using a webcam
+---
 
-Multiple samples per alphabet gesture
+## 🧩 Challenges
 
-Data captured from different angles
+- Image-based models failed in live environments  
+- Visually similar gestures required more samples  
+- Early real-time predictions were unstable  
 
-Dataset can be extended easily for additional gestures
+These were resolved by redesigning the feature pipeline around hand landmarks and refining the dataset.
 
-This approach ensures compatibility with real-time input rather than static images.
+---
 
-**Performance**
+## 🔮 Future Enhancements
 
-Test Accuracy: ~98.25%
+- Word and sentence-level recognition  
+- Dynamic gesture support (J, Z)  
+- Two-hand gesture detection  
+- Mobile or web deployment  
+- Text-to-speech integration  
 
-Real-time Prediction: Yes
+---
 
-Model Size: Lightweight
+## 📁 Project Structure
 
-Compared to an earlier image-based approach, landmark-based learning provided:
+├── data/
+│ └── landmarks_dataset.csv
+├── model/
+│ └── random_forest.pkl
+├── src/
+│ ├── collect_data.py
+│ ├── train_model.py
+│ └── realtime_predict.py
+├── requirements.txt
+└── README.md
 
-Improved stability in live video
 
-Reduced false predictions
+---
 
-Better generalization across users
+## 🏁 Conclusion
 
-**Challenges**
+This project demonstrates a **practical real-time sign language recognition pipeline** using hand landmark features and classical machine learning, optimized for efficiency and real-world usability.
 
-Initial image-based model failed in real-time environments
-
-Visually similar signs required more training samples
-
-Live inference needed smoothing and tuning
-
-Dataset balancing and label consistency
-
-These issues were resolved by switching to landmark-based features and expanding the dataset.
-
-**Future Work**
-
-Word and sentence-level recognition
-
-Dynamic gesture support (e.g., J, Z)
-
-Two-hand gesture detection
-
-Mobile or web deployment
-
-Voice output integration
-
-**Conclusion**
-
-This project demonstrates a practical real-time sign language recognition system built using hand landmark features and classical machine learning.
-The approach prioritizes reliability, efficiency, and real-world usability using minimal hardware.
+---
