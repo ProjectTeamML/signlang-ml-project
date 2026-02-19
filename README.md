@@ -3,6 +3,7 @@
 A real-time sign language recognition application built using MediaPipe and machine learning, designed for stable webcam-based inference.
 
 This project focuses on engineering a deployable, real-time computer vision system rather than just training a classifier.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 🚀 What This Project Demonstrates
@@ -20,6 +21,7 @@ Temporal smoothing for prediction stability
 Confidence-based UI feedback
 
 FPS monitoring
+
 ------------------------------------------------------------------------------------------------------------------------
 
 🧠 Real-Time Pipeline Architecture
@@ -46,6 +48,7 @@ Histogram Equalization
 OTSU thresholding (binary inversion)
 
 This ensures consistency across lighting environments.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 3️⃣ Feature Extraction
@@ -61,6 +64,7 @@ HOG (Histogram of Oriented Gradients):
 L2-Hys normalization
 
 Designed to capture hand shape and edge structure efficiently.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 4️⃣ Prediction Stabilization (Core Engineering Component)
@@ -74,6 +78,7 @@ Majority voting using Counter
 Automatic reset when no hand detected
 
 This significantly improves user experience compared to frame-wise prediction.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 5️⃣ Real-Time Feedback
@@ -89,6 +94,7 @@ Red (low confidence)
 FPS counter displayed live
 
 Stable prediction display
+
 ------------------------------------------------------------------------------------------------------------------------
 
 ⚙️ Model
@@ -100,6 +106,7 @@ Serialized using Joblib
 Supports probability output
 
 Real-time inference on CPU
+
 ------------------------------------------------------------------------------------------------------------------------
 
 🛠 Tech Stack
@@ -117,6 +124,7 @@ NumPy
 scikit-image (HOG)
 
 Joblib
+
 ------------------------------------------------------------------------------------------------------------------------
 
 📊 Performance 
