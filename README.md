@@ -1,125 +1,122 @@
-<div align="center">
+🖐 Real-Time ASL Alphabet Recognition System
 
-# ✋ Real-Time Sign Language Recognition  
-### Hand Landmark–Based Gesture Classification
+A real-time sign language recognition application built using MediaPipe and machine learning, designed for stable webcam-based inference.
 
-<img src="https://img.shields.io/badge/Python-3.x-blue?style=flat-square"/>
-<img src="https://img.shields.io/badge/MediaPipe-Hands-green?style=flat-square"/>
-<img src="https://img.shields.io/badge/ML-Random%20Forest-orange?style=flat-square"/>
-<img src="https://img.shields.io/badge/Accuracy-98.25%25-brightgreen?style=flat-square"/>
+This project focuses on engineering a deployable, real-time computer vision system rather than just training a classifier.
 
-</div>
+🚀 What This Project Demonstrates
 
----
+Real-time webcam inference
 
-## 📌 Overview
+MediaPipe hand tracking integration
 
-This project implements a **real-time sign language recognition system** that detects hand gestures through a webcam and converts them into English alphabet letters.
+Robust preprocessing under varying lighting
 
-The system is designed for **live video input**, using **hand landmark geometry** instead of raw images to ensure stable and efficient real-time performance.
+HOG feature engineering pipeline
 
----
+Temporal smoothing for prediction stability
 
-## 🧠 Approach
+Confidence-based UI feedback
 
-### 🔹 Hand Landmark Detection
-- Uses **MediaPipe Hands**
-- Extracts **21 hand landmarks** per frame  
-- Each landmark provides *(x, y, z)* coordinates  
-- Total features per gesture: **63**
+FPS monitoring
 
-Landmark-based representation reduces sensitivity to lighting, background noise, and camera variations.
+🧠 Real-Time Pipeline Architecture
+1️⃣ Hand Detection
 
----
+MediaPipe detects 21 hand landmarks per frame
 
-### 🔹 Machine Learning Model
-- **Random Forest Classifier**
-- Trained on normalized landmark features
-- Optimized for low-latency inference
+Single-hand optimized tracking
 
-Chosen for its strong performance on structured numerical data and suitability for real-time systems.
+Bounding box dynamically computed
 
----
+2️⃣ Preprocessing (Lighting Robustness)
 
-## ⚙️ System Workflow
+To improve real-world reliability:
 
-Webcam Frame
-->
-Hand Landmark Detection
-->
-Feature Normalization
-->
-Random Forest Model
-->
-Predicted Alphabet Letter
+Hand crop with padding
 
+Resize to 28×28
 
-The system runs at **~20–30 FPS**, enabling smooth real-time interaction.
+Grayscale conversion
 
----
+Histogram Equalization
 
-## 📊 Dataset
+OTSU thresholding (binary inversion)
 
-- Custom dataset collected using a webcam  
-- Multiple samples per alphabet sign  
-- Captured from different angles and positions  
-- Easily extensible for additional gestures  
+This ensures consistency across lighting environments.
 
-This ensures compatibility with real-world usage rather than static image data.
+3️⃣ Feature Extraction
 
----
+HOG (Histogram of Oriented Gradients):
 
-## 🚀 Performance
+12 orientations
 
-| Metric | Value |
-|------|------|
-| Test Accuracy | **~98.25%** |
-| Inference Speed | Real-time |
-| Hardware | Standard Webcam |
+4×4 pixels per cell
 
-Switching from image-based features to landmark-based learning significantly improved prediction stability and accuracy.
+2×2 cells per block
 
----
+L2-Hys normalization
 
-## 🧩 Challenges
+Designed to capture hand shape and edge structure efficiently.
 
-- Image-based models failed in live environments  
-- Visually similar gestures required more samples  
-- Early real-time predictions were unstable  
+4️⃣ Prediction Stabilization (Core Engineering Component)
 
-These were resolved by redesigning the feature pipeline around hand landmarks and refining the dataset.
+To prevent flickering predictions:
 
----
+Sliding buffer (size = 7 frames)
 
-## 🔮 Future Enhancements
+Majority voting using Counter
 
-- Word and sentence-level recognition  
-- Dynamic gesture support (J, Z)  
-- Two-hand gesture detection  
-- Mobile or web deployment  
-- Text-to-speech integration  
+Automatic reset when no hand detected
 
----
+This significantly improves user experience compared to frame-wise prediction.
 
-## 📁 Project Structure
+5️⃣ Real-Time Feedback
 
-<pre>
-├── data/
-│   └── landmarks_dataset.csv
-├── model/
-│   └── random_forest.pkl
-├── src/
-│   ├── collect_data.py
-│   ├── train_model.py
-│   └── realtime_predict.py
-├── requirements.txt
-└── README.md
-</pre>
+Confidence-based bounding box color:
 
----
+Green (>85%)
 
-## 🏁 Conclusion
+Yellow (>65%)
 
-This project demonstrates a **practical real-time sign language recognition pipeline** using hand landmark features and classical machine learning, optimized for efficiency and real-world usability.
+Red (low confidence)
 
----
+FPS counter displayed live
+
+Stable prediction display
+
+⚙️ Model
+
+Pre-trained ASL alphabet classifier
+
+Serialized using Joblib
+
+Supports probability output
+
+Real-time inference on CPU
+
+🛠 Tech Stack
+
+Python
+
+OpenCV
+
+MediaPipe
+
+Scikit-learn
+
+NumPy
+
+scikit-image (HOG)
+
+Joblib
+
+📊 Performance
+
+(Update with your real numbers)
+
+Classes: 24 ASL alphabets (J and Z excluded in Sign MNIST)
+
+Real-time performance: ~XX FPS on CPU
+
+Prediction latency: < XX ms/frame
