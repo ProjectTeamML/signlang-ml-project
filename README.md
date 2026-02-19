@@ -1,4 +1,4 @@
-🖐 Real-Time ASL Alphabet Recognition System
+# 🖐 Real-Time ASL Alphabet Recognition System
 
 A real-time sign language recognition application built using MediaPipe and machine learning, designed for stable webcam-based inference.
 
@@ -6,7 +6,7 @@ This project focuses on engineering a deployable, real-time computer vision syst
 
 ------------------------------------------------------------------------------------------------------------------------
 
-🚀 What This Project Demonstrates
+## 🚀 What This Project Demonstrates
 
 Real-time webcam inference
 
@@ -24,8 +24,9 @@ FPS monitoring
 
 ------------------------------------------------------------------------------------------------------------------------
 
-🧠 Real-Time Pipeline Architecture
-1️⃣ Hand Detection
+## 🧠 Real-Time Pipeline Architecture
+
+### 1️⃣ Hand Detection
 
 MediaPipe detects 21 hand landmarks per frame
 
@@ -33,7 +34,7 @@ Single-hand optimized tracking
 
 Bounding box dynamically computed
 
-2️⃣ Preprocessing (Lighting Robustness)
+### 2️⃣ Preprocessing (Lighting Robustness)
 
 To improve real-world reliability:
 
@@ -51,7 +52,7 @@ This ensures consistency across lighting environments.
 
 ------------------------------------------------------------------------------------------------------------------------
 
-3️⃣ Feature Extraction
+### 3️⃣ Feature Extraction
 
 HOG (Histogram of Oriented Gradients):
 
@@ -67,7 +68,7 @@ Designed to capture hand shape and edge structure efficiently.
 
 ------------------------------------------------------------------------------------------------------------------------
 
-4️⃣ Prediction Stabilization (Core Engineering Component)
+### 4️⃣ Prediction Stabilization (Core Engineering Component)
 
 To prevent flickering predictions:
 
@@ -81,7 +82,7 @@ This significantly improves user experience compared to frame-wise prediction.
 
 ------------------------------------------------------------------------------------------------------------------------
 
-5️⃣ Real-Time Feedback
+### 5️⃣ Real-Time Feedback
 
 Confidence-based bounding box color:
 
@@ -97,7 +98,7 @@ Stable prediction display
 
 ------------------------------------------------------------------------------------------------------------------------
 
-⚙️ Model
+## ⚙️ Model
 
 Pre-trained ASL alphabet classifier
 
@@ -109,7 +110,7 @@ Real-time inference on CPU
 
 ------------------------------------------------------------------------------------------------------------------------
 
-🛠 Tech Stack
+## 🛠 Tech Stack
 
 Python
 
@@ -127,7 +128,7 @@ Joblib
 
 ------------------------------------------------------------------------------------------------------------------------
 
-📊 Performance 
+## 📊 Performance 
 
 (Update with your real numbers)
 
@@ -138,11 +139,11 @@ Real-time performance: ~XX FPS on CPU
 Prediction latency: < XX ms/frame
 
 ---------------------------------------------------------------------------------------------------------------------------
-🙋 My Contribution (Sri Renu Adepu)
+## 🙋 My Contribution (Sri Renu Adepu)
 
 In this collaborative project, I focused specifically on building and optimizing the real-time inference system.
 
-My responsibilities included:
+### My responsibilities included:
 
 Designing and implementing the live webcam prediction pipeline
 
