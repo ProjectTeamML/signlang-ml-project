@@ -111,7 +111,7 @@ scikit-image (HOG)
 
 Joblib
 
-📊 Performance
+📊 Performance 
 
 (Update with your real numbers)
 
@@ -120,3 +120,26 @@ Classes: 24 ASL alphabets (J and Z excluded in Sign MNIST)
 Real-time performance: ~XX FPS on CPU
 
 Prediction latency: < XX ms/frame
+
+
+🙋 My Contribution (Sri Renu Adepu)
+
+In this collaborative project, I focused specifically on building and optimizing the real-time inference system.
+
+My responsibilities included:
+
+Designing and implementing the live webcam prediction pipeline
+
+Integrating MediaPipe hand tracking with OpenCV
+
+Engineering the preprocessing pipeline (cropping, histogram equalization, OTSU thresholding)
+
+Implementing HOG feature extraction for real-time classification
+
+Developing temporal smoothing using a sliding-window majority voting system
+
+Adding confidence-based visualization and dynamic bounding box coloring
+
+Implementing FPS monitoring and performance measurement
+
+Integrating the trained model into a stable real-time application
